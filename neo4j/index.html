@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+
+    <title>Neo4j</title>
+
+    <link rel="stylesheet" href="shared/reveal.min.css">
+    <link rel="stylesheet" href="shared/serif-theme.css">
+    <link rel="stylesheet" href="shared/zenburn.css">
+
+    <style>
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+      line-height: 1.1;
+    }
+    .reveal li {
+      margin: 15px 0;
+    }
+    .reveal th, .reveal td {
+      padding: 15px 30px;
+    }
+    .reveal iframe {
+      width: 800px;
+      height: 800px;
+    }
+    </style>
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h2>Введение в графовые базы: Neo4j</h2>
+        </section>
+
+        <section>
+          <img src="public/image/img.bibo.jpeg" />
+        </section>
+
+        <section>
+          <p>Граф это множество точек и множество линий,<br /> соединяющих между собой все или часть этих точек.</p>
+          <img src="public/image/106.gif" />
+        </section>
+
+        <section>
+                  <section>
+          <p>Задача о Кенигсбергских мостах</p>
+          <br />
+          <img src="public/image/kb.png" />
+                  </section>
+
+        <section>
+          <p>
+            В ходе рассуждений Эйлер пришёл к следующим выводам:</p>
+<ul>
+    <li>Число нечётных вершин (вершин, к которым ведёт нечётное число рёбер) графа должно быть чётно. Не может существовать граф, который имел бы нечётное число нечётных вершин.</li>
+    <li>Если все вершины графа чётные, то можно, не отрывая карандаша от бумаги, начертить граф, при этом можно начинать с любой вершины графа и завершить его в той же вершине.</li>
+    <li>Граф с более чем двумя нечётными вершинами невозможно начертить одним росчерком.</li>
+
+          </ul>
+                  </section>
+
+                  <section>
+                    <img src="public/image/kb_graph.svg.png" />
+                  </section>
+        </section>
+
+        <section>
+          <h2>Типы NOSQL хранилищ:</h2>
+          <ul>
+            <li>Key-value stores</li>
+            <ul><li>ColomnFamily</li></ul>
+            <li>Document stores</li>
+            <li>Graph stores</li>
+          </ul>
+        </section>
+
+        <section>
+        <section>
+          <img src="public/image/g.svg" />
+          <br />
+          <img class="fragment" src="public/image/graph-rdbms.svg" />
+        </section>
+
+        <section>
+          <img src="public/image/graphdb-compare-kvstore.svg" />
+          <br />
+          <img class="fragment" src="public/image/graphdb-compare-kvstore-g.svg" />
+        </section>
+
+        <section>
+          <img src="public/image/graphdb-compare-docdb.svg" />
+          <br />
+          <img class="fragment" src="public/image/graphdb-compare-docdb-g.svg" />
+        </section>
+
+        </section>
+
+        <section>
+          <h2>Neo4J</h2>
+          <ul>
+            <li>Нет схемы</li>
+            <li>Встроенные алгоритмы обхода графа</li>
+            <li>Коллекция алгоритмов поиска путей</li>
+            <li>Язык запросов cypher</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Cypher</h2>
+
+          <p>CREATE (a:Person { name: "Alex", from: "Veeam" })</p><br />
+
+          <p>MATCH (a:Person) WHERE a.name = "Alex" RETURN a;</p><br />
+
+          <p>MATCH (a:Person),(b:Person) <br />
+WHERE a.name = 'Node A' AND b.name = 'Node B' <br />
+CREATE (a)-[r:RELTYPE]->(b) <br />
+RETURN r</p><br />
+
+<p>CREATE p =(alex { name:'Alex' })-[:WORKS_AT]->(neo)<-[:WORKS_AT]-(michael { name:'Michael' })</p>
+        </section>
+
+<section>
+  <h2>Использование:</h2>
+  <ul>
+    <li>GEO данные</li>
+    <li>соц сети</li>
+
+  </ul>
+</section>
+
+        <section>
+          <p>финиш</p>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="shared/head.min.js"></script>
+    <script src="shared/reveal.min.js"></script>
+
+    <script>
+    Reveal.initialize({
+      history: true,
+      transition: "linear",
+      transitionSpeed: "fast",
+      dependencies: [
+        {
+          src: "shared/highlight.js",
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: "shared/zoom.js",
+          condition: function() {
+            return !!document.body.classList;
+          }
+        }
+      ]
+    });
+    </script>
+  </body>
+</html>
